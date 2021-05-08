@@ -1,0 +1,30 @@
+{
+  "name": "caesar-cipher",
+  "version": "1.0.0",
+  "description": "rss first task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NetZorro/caesar-cipher.git"
+  },
+  "keywords": [
+    "rss",
+    "caesar-cipher"
+  ],
+  "author": "@NetZorro (deniskodua@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NetZorro/caesar-cipher/issues"
+  },
+  "homepage": "https://github.com/NetZorro/caesar-cipher#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
