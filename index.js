@@ -1,6 +1,6 @@
-const program = new Command();
 const fs = require("fs");
 const { Command } = require("commander");
+const program = new Command();
 const { pipeline } = require("stream");
 const { CaesarTransformStream } = require("./streams");
 const { checkInputArgs } = require("./caesar-internal");
@@ -15,7 +15,7 @@ program.parse(process.argv);
 
 const { shift: shiftAsString, input, output, action } = program.opts();
 
-const shift = parseInt(shiftAsString, 10);
+const shift = shiftAsString ? parseInt(shiftAsString, 10) : shiftAsString;
 
 checkInputArgs(shift, input, output, action);
 
@@ -31,6 +31,6 @@ const transformStream = new CaesarTransformStream(shift, action);
 
 pipeline(readStream, transformStream, writeStream, (err) => {
   if (err) {
-    process.stderr.write("error");
+    process.stderr.write(`error: ${err}`);
   }
 });

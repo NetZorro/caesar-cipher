@@ -10,8 +10,8 @@ const fs = require("fs");
 const checkInputArgs = (shift, input, output, action) => {
   // check shift
   if (!shift) {
-    console.log(`Error: shift nust be integer, passed "${shiftAsString}"`);
-    process.exit(0);
+    console.log(`Error: shift must be integer, passed "${shift}"`);
+    process.exit(1);
   }
 
   // check input
@@ -20,7 +20,7 @@ const checkInputArgs = (shift, input, output, action) => {
     fs.access(input, fs.constants.F_OK, (err) => {
       if (err) {
         console.log(`Error: ${input} "does not exist"`);
-        process.exit(0);
+        process.exit(1);
       }
     });
 
@@ -28,7 +28,7 @@ const checkInputArgs = (shift, input, output, action) => {
     fs.access(input, fs.constants.R_OK, (err) => {
       if (err) {
         console.log(`Error: ${input} "is not readable"`);
-        process.exit(0);
+        process.exit(1);
       }
     });
   }
@@ -39,7 +39,7 @@ const checkInputArgs = (shift, input, output, action) => {
     fs.access(output, fs.constants.F_OK, (err) => {
       if (err) {
         console.log(`Error: ${output} "does not exist"`);
-        process.exit(0);
+        process.exit(1);
       }
     });
 
@@ -47,7 +47,7 @@ const checkInputArgs = (shift, input, output, action) => {
     fs.access(output, fs.constants.W_OK, (err) => {
       if (err) {
         console.log(`Error: ${output} "is not writable"`);
-        process.exit(0);
+        process.exit(1);
       }
     });
   }
@@ -63,7 +63,7 @@ const checkInputArgs = (shift, input, output, action) => {
     console.log(
       `Error: action required and must be 'encode' or 'decode' , passed "${action}"`
     );
-    process.exit(0);
+    process.exit(1);
   }
 };
 
